@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.miaosha.dao.carrierinfoDAOMapper" >
+  <resultMap id="BaseResultMap" type="com.miaosha.dataobject.carrierinfoDAO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="vender_id" property="venderId" jdbcType="BIGINT" />
+    <result column="vender_code" property="venderCode" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="BIGINT" />
+    <result column="channel_id" property="channelId" jdbcType="BIGINT" />
+    <result column="sku_id" property="skuId" jdbcType="BIGINT" />
+    <result column="send_town_id" property="sendTownId" jdbcType="BIGINT" />
+    <result column="send_province_id" property="sendProvinceId" jdbcType="BIGINT" />
+    <result column="send_county_id" property="sendCountyId" jdbcType="BIGINT" />
+    <result column="send_city_id" property="sendCityId" jdbcType="BIGINT" />
+    <result column="result_code" property="resultCode" jdbcType="VARCHAR" />
+    <result column="result_msg" property="resultMsg" jdbcType="VARCHAR" />
+    <result column="reason_msg" property="reasonMsg" jdbcType="VARCHAR" />
+    <result column="carrier_id" property="carrierId" jdbcType="BIGINT" />
+    <result column="carrier_name" property="carrierName" jdbcType="VARCHAR" />
+    <result column="is_support" property="isSupport" jdbcType="BIGINT" />
+    <result column="fall_library_time" property="fallLibraryTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, vender_id, vender_code, category_id, channel_id, sku_id, send_town_id, send_province_id, 
+    send_county_id, send_city_id, result_code, result_msg, reason_msg, carrier_id, carrier_name, 
+    is_support, fall_library_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from carrierinfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from carrierinfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.miaosha.dataobject.carrierinfoDAO" >
+    insert into carrierinfo (id, vender_id, vender_code, 
+      category_id, channel_id, sku_id, 
+      send_town_id, send_province_id, send_county_id, 
+      send_city_id, result_code, result_msg, 
+      reason_msg, carrier_id, carrier_name, 
+      is_support, fall_library_time)
+    values (#{id,jdbcType=BIGINT}, #{venderId,jdbcType=BIGINT}, #{venderCode,jdbcType=VARCHAR}, 
+      #{categoryId,jdbcType=BIGINT}, #{channelId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, 
+      #{sendTownId,jdbcType=BIGINT}, #{sendProvinceId,jdbcType=BIGINT}, #{sendCountyId,jdbcType=BIGINT}, 
+      #{sendCityId,jdbcType=BIGINT}, #{resultCode,jdbcType=VARCHAR}, #{resultMsg,jdbcType=VARCHAR}, 
+      #{reasonMsg,jdbcType=VARCHAR}, #{carrierId,jdbcType=BIGINT}, #{carrierName,jdbcType=VARCHAR}, 
+      #{isSupport,jdbcType=BIGINT}, #{fallLibraryTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.miaosha.dataobject.carrierinfoDAO" >
+    insert into carrierinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="venderId != null" >
+        vender_id,
+      </if>
+      <if test="venderCode != null" >
+        vender_code,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="channelId != null" >
+        channel_id,
+      </if>
+      <if test="skuId != null" >
+        sku_id,
+      </if>
+      <if test="sendTownId != null" >
+        send_town_id,
+      </if>
+      <if test="sendProvinceId != null" >
+        send_province_id,
+      </if>
+      <if test="sendCountyId != null" >
+        send_county_id,
+      </if>
+      <if test="sendCityId != null" >
+        send_city_id,
+      </if>
+      <if test="resultCode != null" >
+        result_code,
+      </if>
+      <if test="resultMsg != null" >
+        result_msg,
+      </if>
+      <if test="reasonMsg != null" >
+        reason_msg,
+      </if>
+      <if test="carrierId != null" >
+        carrier_id,
+      </if>
+      <if test="carrierName != null" >
+        carrier_name,
+      </if>
+      <if test="isSupport != null" >
+        is_support,
+      </if>
+      <if test="fallLibraryTime != null" >
+        fall_library_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="venderId != null" >
+        #{venderId,jdbcType=BIGINT},
+      </if>
+      <if test="venderCode != null" >
+        #{venderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="channelId != null" >
+        #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="skuId != null" >
+        #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="sendTownId != null" >
+        #{sendTownId,jdbcType=BIGINT},
+      </if>
+      <if test="sendProvinceId != null" >
+        #{sendProvinceId,jdbcType=BIGINT},
+      </if>
+      <if test="sendCountyId != null" >
+        #{sendCountyId,jdbcType=BIGINT},
+      </if>
+      <if test="sendCityId != null" >
+        #{sendCityId,jdbcType=BIGINT},
+      </if>
+      <if test="resultCode != null" >
+        #{resultCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resultMsg != null" >
+        #{resultMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonMsg != null" >
+        #{reasonMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="carrierId != null" >
+        #{carrierId,jdbcType=BIGINT},
+      </if>
+      <if test="carrierName != null" >
+        #{carrierName,jdbcType=VARCHAR},
+      </if>
+      <if test="isSupport != null" >
+        #{isSupport,jdbcType=BIGINT},
+      </if>
+      <if test="fallLibraryTime != null" >
+        #{fallLibraryTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.miaosha.dataobject.carrierinfoDAO" >
+    update carrierinfo
+    <set >
+      <if test="venderId != null" >
+        vender_id = #{venderId,jdbcType=BIGINT},
+      </if>
+      <if test="venderCode != null" >
+        vender_code = #{venderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="channelId != null" >
+        channel_id = #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="skuId != null" >
+        sku_id = #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="sendTownId != null" >
+        send_town_id = #{sendTownId,jdbcType=BIGINT},
+      </if>
+      <if test="sendProvinceId != null" >
+        send_province_id = #{sendProvinceId,jdbcType=BIGINT},
+      </if>
+      <if test="sendCountyId != null" >
+        send_county_id = #{sendCountyId,jdbcType=BIGINT},
+      </if>
+      <if test="sendCityId != null" >
+        send_city_id = #{sendCityId,jdbcType=BIGINT},
+      </if>
+      <if test="resultCode != null" >
+        result_code = #{resultCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resultMsg != null" >
+        result_msg = #{resultMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonMsg != null" >
+        reason_msg = #{reasonMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="carrierId != null" >
+        carrier_id = #{carrierId,jdbcType=BIGINT},
+      </if>
+      <if test="carrierName != null" >
+        carrier_name = #{carrierName,jdbcType=VARCHAR},
+      </if>
+      <if test="isSupport != null" >
+        is_support = #{isSupport,jdbcType=BIGINT},
+      </if>
+      <if test="fallLibraryTime != null" >
+        fall_library_time = #{fallLibraryTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.miaosha.dataobject.carrierinfoDAO" >
+    update carrierinfo
+    set vender_id = #{venderId,jdbcType=BIGINT},
+      vender_code = #{venderCode,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=BIGINT},
+      channel_id = #{channelId,jdbcType=BIGINT},
+      sku_id = #{skuId,jdbcType=BIGINT},
+      send_town_id = #{sendTownId,jdbcType=BIGINT},
+      send_province_id = #{sendProvinceId,jdbcType=BIGINT},
+      send_county_id = #{sendCountyId,jdbcType=BIGINT},
+      send_city_id = #{sendCityId,jdbcType=BIGINT},
+      result_code = #{resultCode,jdbcType=VARCHAR},
+      result_msg = #{resultMsg,jdbcType=VARCHAR},
+      reason_msg = #{reasonMsg,jdbcType=VARCHAR},
+      carrier_id = #{carrierId,jdbcType=BIGINT},
+      carrier_name = #{carrierName,jdbcType=VARCHAR},
+      is_support = #{isSupport,jdbcType=BIGINT},
+      fall_library_time = #{fallLibraryTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

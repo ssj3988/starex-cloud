@@ -20,6 +20,8 @@
     <result column="is_support" property="isSupport" jdbcType="BIGINT" />
     <result column="fall_library_time" property="fallLibraryTime" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  
   <sql id="Base_Column_List" >
     id, vender_id, vender_code, category_id, channel_id, sku_id, send_town_id, send_province_id, 
     send_county_id, send_city_id, result_code, result_msg, reason_msg, carrier_id, carrier_name, 

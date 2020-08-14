@@ -3,7 +3,6 @@ package com.miaosha.dataobject;
 import java.util.Date;
 
 public class carrierinfoDAO {
-  // userid
     private Long id;
 
     private Long venderId;
